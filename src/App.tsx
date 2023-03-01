@@ -21,23 +21,25 @@ const Layout = () => {
   );
 };
 
+const pagePath = '/react_dashboard';
+
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: `${pagePath}/`,
     element: <Layout />,
     children: [
       {
-        path: '/',
+        path: `${pagePath}/`,
         element: <Home />,
       }
     ]
   },
   {
-    path: '/register',
+    path: `${pagePath}/register`,
     element: <Register />,
   },
   {
-    path: '/login',
+    path: `${pagePath}/login`,
     element: <Login />,
   },
 ]);
