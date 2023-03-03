@@ -1,27 +1,30 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import Dashboard from '../components/Dashboard';
+import styled from 'styled-components';
+
+const Homepage = styled.div`
+  display: flex;
+  gap: 32px;
+`;
+
+const RightSideContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+`;
 
 const Home = () => {
   return (
-    <div>Home</div>
-    // <div className='home'>
-    //   <div className="posts">
-    //     {posts.map(post => (
-    //       <div className="post" key={post.id}>
-    //         <div className='img'>
-    //           <img src={post.img} alt="post" />
-    //         </div>
-    //         <div className="content">
-    //           <Link className='link' to={`/post/:${post.id}`}>
-    //             <h1>{post.title}</h1>
-    //           </Link>
-    //             <p>{post.desc}</p>
-    //             <button>Read more</button>
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
+    <Homepage>
+      <Sidebar />
+
+      <RightSideContainer>
+        <Header />
+        <Dashboard />
+      </RightSideContainer>
+    </Homepage>
   );
 };
 

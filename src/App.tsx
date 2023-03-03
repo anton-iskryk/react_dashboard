@@ -1,38 +1,37 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet,
 } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
+// import Header from './components/Header';
+// import Sidebar from './components/Sidebar';
+// import Dashboard from './components/Dashboard';
+// import styled from 'styled-components';
 
-const Layout = () => {
-  return (
-    <>
-      <Navbar />
-      <Sidebar />
-      <Outlet />
-      <Footer />
-    </>
-  );
-};
+// const Layout = () => {
+//   return (
+//     <>
+//       <Header />
+//       <Sidebar />
+//       <Dashboard />
+//     </>
+//   );
+// };
 
 const pagePath = '/react_dashboard';
 
 const router = createBrowserRouter([
   {
     path: `${pagePath}/`,
-    element: <Layout />,
-    children: [
-      {
-        path: `${pagePath}/`,
-        element: <Home />,
-      }
-    ]
+    element: <Home />,
+    // children: [
+    //   {
+    //     path: `${pagePath}/`,
+    //     element: <Home />,
+    //   }
+    // ]
   },
   {
     path: `${pagePath}/register`,
