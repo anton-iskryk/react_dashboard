@@ -16,20 +16,13 @@ const SidebarBlock = styled.div`
   background: #242731;
   height: 100vh;
   min-width: 84px;
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0px;
-  width: 80px;
-  height: 100%;
-  position: fixed;
-  z-index: -1; */
 `;
 
 const SidebarLogo = styled.img`
   cursor: pointer;
   width: 40px;
   height: 40px;
-  margin: 15px 0 50px;
+  margin: 14px 0 50px;
 `;
 
 const SidebarList = styled.ul`
@@ -44,8 +37,8 @@ const SidebarList = styled.ul`
 
 const SidebarIcon = styled.img`
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   padding: 12px;
   background-color: #191C23;

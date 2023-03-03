@@ -6,6 +6,7 @@ import frameIcon3 from '../img/upper_frame_3.svg';
 import frameIcon4 from '../img/upper_frame_4.svg';
 import frameIcon5 from '../img/upper_frame_5.svg';
 import GameStats from './GameStats';
+import DataTypeDropdown from './DataTypeDropdown';
 
 const UpperFramesBlock = styled.div`
   display: flex;
@@ -24,8 +25,8 @@ const UpperFrame = styled.div`
 `;
 
 const UpperFrameIcon1 = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   padding: 12px;
   margin-left: 20px;
   background: rgba(66, 204, 88, 0.15);
@@ -33,8 +34,8 @@ const UpperFrameIcon1 = styled.img`
 `;
 
 const UpperFrameIcon2 = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   padding: 12px;
   margin-left: 20px;
   background: rgba(73, 152, 238, 0.15);
@@ -42,8 +43,8 @@ const UpperFrameIcon2 = styled.img`
 `;
 
 const UpperFrameIcon3 = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   padding: 12px;
   margin-left: 20px;
   background: rgba(242, 93, 93, 0.15);
@@ -51,8 +52,8 @@ const UpperFrameIcon3 = styled.img`
 `;
 
 const UpperFrameIcon4 = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   padding: 12px;
   margin-left: 20px;
   background: rgba(244, 167, 50, 0.15);
@@ -60,8 +61,8 @@ const UpperFrameIcon4 = styled.img`
 `;
 
 const UpperFrameIcon5 = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   padding: 12px;
   margin-left: 20px;
   background: rgba(155, 83, 248, 0.15);
@@ -87,6 +88,44 @@ const Title = styled.span`
   line-height: 16px;
 
   color: #A2A4A8;
+`;
+
+const DropdownTitle = styled.div`
+  display: flex;
+  gap: 16px;
+`;
+
+const GameStatsBlock = styled.div`
+  max-width: 1312px;
+  max-height: 344px;
+  padding: 32px;
+
+  background: #242731;
+  border-radius: 4px;
+`;
+
+const GameStatsHeader = styled.div`
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+`;
+
+const GameStatsHeaderTitle = styled.span`
+  margin-bottom: 24px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  color: #fff;
+`;
+
+const DataType = styled.span`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: rgba(255, 255, 255, 0.6);
 `;
 
 const Dashboard = () => {
@@ -139,7 +178,18 @@ const Dashboard = () => {
       </UpperFrame>
     </UpperFramesBlock>
 
-    <GameStats />
+    <GameStatsBlock>
+      <GameStatsHeader>
+        <GameStatsHeaderTitle>Game Stats</GameStatsHeaderTitle>
+
+        <DropdownTitle>
+          <DataType>Data type</DataType>
+          <DataTypeDropdown />
+        </DropdownTitle>
+      </GameStatsHeader>
+
+      <GameStats />
+    </GameStatsBlock>
     </>
   );
 };

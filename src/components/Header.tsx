@@ -9,7 +9,6 @@ const HeaderBlock = styled.div`
   height: 68px;
   width: calc(100% - 48px);
   max-width: 1920px;
-  /* margin: auto; */
 `;
 
 const HeaderTitle = styled.div`
@@ -30,8 +29,8 @@ const HeaderLogin = styled.div`
 
 const LoginIcon = styled.img`
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   padding: 6px;
   background-color: #242731;

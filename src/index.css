@@ -17,5 +17,8 @@ body {
   padding: 0;
   font-family: 'Metropolis';
   background-color: #111216;
+}
+
+* {
   box-sizing: border-box;
 }
