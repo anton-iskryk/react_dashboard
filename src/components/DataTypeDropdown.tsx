@@ -150,32 +150,53 @@ const DropdownList = styled.ul`
   position: absolute;
   right: 0;
   left: auto;
+
   width: 300px;
   height: 168px;
+  padding: 13px 68px;
+
   background: #242731;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4), 0px 2px 4px rgba(0, 0, 0, 0.25), 0px 8px 48px rgba(0, 0, 0, 0.6), 0px 2px 4px rgba(36, 38, 53, 0.08), 0px 4px 12px rgba(36, 38, 53, 0.1), 0px 16px 24px rgba(55, 58, 83, 0.16);
   border-radius: 8px;
+
   z-index: 1;
   list-style: none;
-  margin: 0;
-  padding: 0;
 `;
 
 const DropdownItem = styled.li`
+  position: relative;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
 
   color: #fff;
   cursor: pointer;
+
+  &:not(last-child) {
+    margin-bottom: 20px;
+  }
+
+  &::before {
+    position: absolute;
+    /* text-align: center; */
+    left: -25%;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #60677A;
+    border-radius: 50%;
+  }
 `;
 
-const DropdownInput = styled.input`
-padding: 20px;
-  cursor: pointer;
-`;
+// const DropdownInput = styled.input`
+//   margin-right: 17px;
+//   cursor: pointer;
+// `;
 
-const options = ['Diagrams', 'Graph', 'Table', 'Paragrapg'];
+const options = ['Diagrams', 'Graph', 'Table', 'Paragraph'];
 
 const DataTypeDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -200,7 +221,7 @@ const DataTypeDropdown = () => {
               // selected={option === selectedOption}
               onClick={() => handleOptionClick(option)}
             >
-              <DropdownInput type="radio" name="option" checked={selectedOption === option} readOnly />
+              {/* <DropdownInput type="radio" name="option" checked={selectedOption === option} readOnly /> */}
               {option}
             </DropdownItem>
           ))}

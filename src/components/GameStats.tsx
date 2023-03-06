@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
-type Props = {
-  name: string,
-  uv: number,
-  pv: number,
-  amt: number,
-};
+// type Props = {
+//   name: string,
+//   uv: number,
+//   pv: number,
+//   amt: number,
+// };
 
 const data = [
   {name: '01/2022', uv: 730, pv: 800, amt: 240},
