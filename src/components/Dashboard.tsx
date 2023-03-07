@@ -118,7 +118,7 @@ const GameStatsHeader = styled.div`
 const GameStatsContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 49px;
+  gap: 48px;
 `;
 
 const GameStatsHeaderTitle = styled.span`
@@ -149,6 +149,13 @@ interface Statistic {
 
 interface Users {
   name: string;
+  date: string;
+}
+
+interface ChartData {
+  blue: number;
+  red: number;
+  green: number;
   date: string;
 }
 
@@ -190,6 +197,7 @@ interface Data {
 const Dashboard = () => {
   const [statistic, setStatistic] = useState<Statistic | undefined>(undefined);
   const [users, setUsers] = useState<Users[] | undefined>(undefined);
+  const [chartData, setChartData] = useState<ChartData[] | undefined>(undefined);
   const [data, setData] = useState<Data | undefined>(undefined);
 
   useEffect(() => {
@@ -203,6 +211,7 @@ const Dashboard = () => {
         setData(res.data);
         setStatistic(res.data.statistic);
         setUsers(res.data.users);
+        setChartData(res.data.chartData);
       } catch (error) {
         console.log(error);
       }
@@ -210,7 +219,7 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  if (!data || !statistic || !users) {
+  if (!data || !statistic || !users || !chartData) {
     return <Loader />;
   }
 
@@ -295,9 +304,9 @@ const Dashboard = () => {
         </GameStatsHeader>
 
         <GameStatsContainer>
-          <GameStats />
+          <GameStats chartData={chartData} />
           <DataTypeRating />
-          <DataTypeUsers users={data.users} />
+          <DataTypeUsers users={users} />
         </GameStatsContainer>
       </GameStatsBlock>
     </>

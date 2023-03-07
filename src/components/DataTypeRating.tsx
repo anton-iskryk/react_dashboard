@@ -42,9 +42,9 @@ interface Data {
   color: string;
 }
 
-interface Props {
-  ratingData: Data[];
-}
+// interface Props {
+//   ratingData: Data[];
+// }
 
 const ButtonList = styled.ul`
   list-style: none;
@@ -107,7 +107,7 @@ const ButtonTitleSales = styled.span`
 `;
 
 const DataTypeRating: React.FC = () => {
-  const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
+  const [selectedButtons, setSelectedButtons] = useState<number[]>([1, 2, 3]);
 
   const handleButtonClick = (buttonId: number) => {
     if (selectedButtons.includes(buttonId)) {
