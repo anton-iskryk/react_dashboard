@@ -28,7 +28,7 @@ const DropdownTitle = styled.div<DropdownItemProps>`
   user-select: none;
 `;
 
-const DropdownArrow = styled.img`
+const DropdownArrow = styled.img<DropdownItemProps>`
   width: 10px;
   height: 10px;
   margin-left: 8px;
@@ -58,7 +58,7 @@ const DropdownList = styled.ul`
   list-style: none;
 `;
 
-const DropdownItem = styled.li`
+const DropdownItem = styled.li<DropdownItemProps>`
   position: relative;
   font-weight: 400;
   font-size: 14px;

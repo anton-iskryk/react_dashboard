@@ -29,7 +29,7 @@ const DropdownTitle = styled.div<DropdownItemProps>`
   user-select: none;
 `;
 
-const DropdownArrow = styled.img`
+const DropdownArrow = styled.img<DropdownItemProps>`
   width: 10px;
   height: 10px;
   margin-left: 8px;
