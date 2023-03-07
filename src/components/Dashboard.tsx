@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import axios from 'axios';
 import Loader from '../components/Loader';
 import UpperFramesBlock from '../components/UpperFramesBlock';
-import GameStatsRightBlock from '../components/GameStatsRightBlock';
 import GameStatsLeftBlock from '../components/GameStatsLeftBlock';
+import GameStatsRightBlock from '../components/GameStatsRightBlock';
 
-
+const GameStatsBlocks = styled.div`
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+`;
 
 interface Statistic {
   iam_users: number;
@@ -98,8 +101,10 @@ const Dashboard = () => {
     <>
       <UpperFramesBlock statistic={statistic} />
 
-      <GameStatsLeftBlock chartData={chartData} users={users} />
-      <GameStatsRightBlock />
+      <GameStatsBlocks>
+        <GameStatsLeftBlock chartData={chartData} users={users} />
+        <GameStatsRightBlock chartData={chartData} users={users} />
+      </GameStatsBlocks>
     </>
   );
 };

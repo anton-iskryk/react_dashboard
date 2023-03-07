@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import DataTypeRating from './DataTypeRating';
 import DataTypeDropdown from './DataTypeDropdown';
@@ -12,7 +12,7 @@ const DropdownTitle = styled.div`
 `;
 
 const GameStatsBlock = styled.div`
-  max-width: 1312px;
+  min-width: 1312px;
   max-height: 344px;
   padding: 24px 32px 32px;
 

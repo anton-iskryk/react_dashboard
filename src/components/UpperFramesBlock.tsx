@@ -9,6 +9,7 @@ import frameIcon5 from '../img/upper_frame_5.svg';
 const UpperFrames = styled.div`
   display: flex;
   gap: 20px;
+  margin-bottom: 16px;
 `;
 
 const UpperFrame = styled.div`
