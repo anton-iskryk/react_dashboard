@@ -103,7 +103,7 @@ const DropdownTitle = styled.div`
 const GameStatsBlock = styled.div`
   max-width: 1312px;
   max-height: 344px;
-  padding: 32px;
+  padding: 24px 32px 32px;
 
   background: #242731;
   border-radius: 4px;
@@ -118,6 +118,7 @@ const GameStatsHeader = styled.div`
 const GameStatsContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 48px;
 `;
 
@@ -293,6 +294,7 @@ const Dashboard = () => {
           </UpperFrame>
         </>
       </UpperFramesBlock>
+
       <GameStatsBlock>
         <GameStatsHeader>
           <GameStatsHeaderTitle>Game Stats</GameStatsHeaderTitle>
