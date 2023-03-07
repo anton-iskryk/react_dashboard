@@ -1,5 +1,19 @@
 import React from 'react';
-import { PieChart, Pie, Cell, Tooltip, Label } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts';
+import styled from 'styled-components';
+
+const ChartContainer = styled.div`
+  width: 100%;
+  height: 232px;
+`;
+
+const LegendItem = styled.span`
+  color: #9F9F9F;
+  font-weight: 400;
+  font-size: 12px;
+  padding-left: 16px;
+  font-family: 'Metropolis';
+`;
 
 const data = [
   { name: 'Roles', value: 1 },
@@ -7,14 +21,6 @@ const data = [
   { name: 'Policies', value: 3 },
 ];
 const colors = ['#18A0FB', '#3CDC86', '#ED2D95'];
-
-const renderColorfulLegendText = (value: string, entry: any) => {
-  return (
-    <span style={{ color: '#596579', fontWeight: 500, padding: '10px' }}>
-      {value}
-    </span>
-  );
-};
 
 interface CustomLabelProps {
   title: string;
@@ -28,7 +34,7 @@ const RightChart: React.FC = () => {
     return (
       <g>
         <text
-          x='50%'
+          x='35%'
           y='25%'
           textAnchor="middle"
           dominantBaseline="central"
@@ -41,7 +47,7 @@ const RightChart: React.FC = () => {
           {title}
         </text>
         <text
-          x='50%'
+          x='35%'
           y='45%'
           textAnchor="middle"
           dominantBaseline="central"
@@ -54,7 +60,7 @@ const RightChart: React.FC = () => {
           {percent}
         </text>
         <text
-          x='50%'
+          x='35%'
           y='65%'
           textAnchor="middle"
           fill="#fff"
@@ -65,7 +71,7 @@ const RightChart: React.FC = () => {
           {desc}
         </text>
         <text
-          x='50%'
+          x='35%'
           y='72%'
           textAnchor="middle"
           fill="#fff"
@@ -79,40 +85,59 @@ const RightChart: React.FC = () => {
     );
   };
 
-  return (
-    <PieChart width={232} height={232}>
-      <Pie
-        stroke='none'
-        data={data}
-        dataKey="value"
-        nameKey="name"
-        cx="50%"
-        cy="50%"
-        innerRadius={90}
-        outerRadius={110}
-        fill="#8884d8"
-        paddingAngle={5}
-        cornerRadius={40}
-        startAngle={-290}
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-        ))}
+  const renderLegends = (value: string) => {
+    return (
+      <LegendItem>
+        {value}
+      </LegendItem>
+    );
+  };
 
-        <Label
-          content={
-            <CustomLabel
-              title="EXCESSIVE"
-              percent='85%'
-              desc='+40 418 in the last'
-              days='30 days'
+  return (
+    <ChartContainer>
+      <ResponsiveContainer>
+        <PieChart width={364} height={232}>
+          <Pie
+            stroke='none'
+            data={data}
+            dataKey="value"
+            nameKey="name"
+            cx='45%'
+            cy='50%'
+            innerRadius={90}
+            outerRadius={110}
+            paddingAngle={5}
+            cornerRadius={40}
+            startAngle={-290}
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+            ))}
+
+            <Label
+              content={
+                <CustomLabel
+                  title="EXCESSIVE"
+                  percent='85%'
+                  desc='+40 418 in the last'
+                  days='30 days'
+                />
+              }
+              position="center"
             />
-          }
-          position="center"
-        />
-      </Pie>
-      <Tooltip />
-    </PieChart>
+          </Pie>
+          <Tooltip />
+          <Legend
+            verticalAlign="top"
+            align="right"
+            iconType="circle"
+            layout="vertical"
+            iconSize={8}
+            formatter={renderLegends}
+          />
+        </PieChart>
+      </ResponsiveContainer>
+    </ChartContainer>
   );
 };
 
