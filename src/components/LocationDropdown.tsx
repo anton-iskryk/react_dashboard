@@ -87,7 +87,7 @@ const DropdownChooseTick = styled.img<DropdownItemProps>`
 const options = ['Charlottetown', 'Halifax', 'Naperville', 'Vernon', 'Montreal'];
 
 const LocationDropdown = () => {
-  const [selectedOption, setSelectedOption] = useState(options[1]);
+  const [selectedOption, setSelectedOption] = useState(options[2]);
   const [dropdownActive, setDropdownActive] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
