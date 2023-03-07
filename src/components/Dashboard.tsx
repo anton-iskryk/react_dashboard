@@ -8,6 +8,7 @@ import frameIcon4 from '../img/upper_frame_4.svg';
 import frameIcon5 from '../img/upper_frame_5.svg';
 import GameStats from './GameStats';
 import DataTypeDropdown from './DataTypeDropdown';
+import DataTypeRating from './DataTypeRating';
 import axios from 'axios';
 import Loader from '../components/Loader';
 
@@ -111,6 +112,11 @@ const GameStatsHeader = styled.div`
   display: flex;
   align-items: start;
   justify-content: space-between;
+`;
+
+const GameStatsContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const GameStatsHeaderTitle = styled.span`
@@ -273,7 +279,10 @@ const Dashboard = () => {
           </DropdownTitle>
         </GameStatsHeader>
 
-        <GameStats />
+        <GameStatsContainer>
+          <GameStats />
+          <DataTypeRating />
+        </GameStatsContainer>
       </GameStatsBlock>
     </>
   );
