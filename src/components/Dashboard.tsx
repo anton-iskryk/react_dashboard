@@ -11,6 +11,7 @@ import DataTypeDropdown from './DataTypeDropdown';
 import DataTypeRating from './DataTypeRating';
 import axios from 'axios';
 import Loader from '../components/Loader';
+import DataTypeUsers from '../components/DataTypeUsers';
 
 const UpperFramesBlock = styled.div`
   display: flex;
@@ -117,6 +118,7 @@ const GameStatsHeader = styled.div`
 const GameStatsContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 49px;
 `;
 
 const GameStatsHeaderTitle = styled.span`
@@ -136,6 +138,19 @@ const DataType = styled.span`
 
   color: rgba(255, 255, 255, 0.6);
 `;
+
+interface Statistic {
+  iam_users: number;
+  iam_roles: number;
+  iam_policies: number;
+  compute_resources: number;
+  games: number;
+}
+
+interface Users {
+  name: string;
+  date: string;
+}
 
 interface Data {
   statistic: {
@@ -173,14 +188,11 @@ interface Data {
 }
 
 const Dashboard = () => {
-  // const [statistic, setStatistic] = useState<Data | undefined>(undefined);
-  // const [statistic, setStatistic] = useState<Data | undefined>(undefined);
+  const [statistic, setStatistic] = useState<Statistic | undefined>(undefined);
+  const [users, setUsers] = useState<Users[] | undefined>(undefined);
   const [data, setData] = useState<Data | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-
     const fetchData = async () => {
       try {
         const res = await axios.get('http://vindev.cx.ua/dashboard', {
@@ -188,28 +200,26 @@ const Dashboard = () => {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6ImV4ZW1wbGVAbWFpbC5jb20ifSwiaWF0IjoxNjc4MDkzNTIzfQ.Z6ipWb26LZVFahDxYhYLq-MBWSW4V9l2wJaYFv4A-2o',
           },
         });
-
         setData(res.data);
-
-        setIsLoading(false);
+        setStatistic(res.data.statistic);
+        setUsers(res.data.users);
       } catch (error) {
-        setIsLoading(false);
         console.log(error);
       }
     };
     fetchData();
   }, []);
 
-  if (!data) {
+  if (!data || !statistic || !users) {
     return <Loader />;
   }
 
-  const { 
-    statistic,
-    chartData,
-    users,
-    general_sales_time,
-  } = data;
+  // const { 
+  //   statistic,
+  //   chartData,
+  //   users,
+  //   general_sales_time,
+  // } = data;
 
   const {
     iam_users,
@@ -218,6 +228,11 @@ const Dashboard = () => {
     compute_resources,
     games,
   } = statistic;
+
+  // const allUsers = Array(users);
+
+  console.log(users);
+  
 
   return (
     <>
@@ -282,6 +297,7 @@ const Dashboard = () => {
         <GameStatsContainer>
           <GameStats />
           <DataTypeRating />
+          <DataTypeUsers users={data.users} />
         </GameStatsContainer>
       </GameStatsBlock>
     </>

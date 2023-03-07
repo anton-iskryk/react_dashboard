@@ -23,23 +23,15 @@ const DropdownTitle = styled.div<DropdownItemProps>`
   font-size: 13px;
   line-height: 20px;
   color: ${props => (props.active ? '#76B2EA' : '#fff')};
-  /* color: ${(dropdownActive) => (dropdownActive ? '#fff' : '#76B2EA')}; */
+  
   cursor: pointer;
   user-select: none;
 `;
 
 const DropdownArrow = styled.img`
   width: 10px;
-  height: 5px;
+  height: 10px;
   margin-left: 8px;
-  &:before {
-    content: '';
-    display: inline-block;
-    border-top: 6px solid #333;
-    border-right: 6px solid transparent;
-    border-left: 6px solid transparent;
-    margin-right: 8px;
-  }
 `;
 
 const DropdownList = styled.ul`
@@ -50,9 +42,16 @@ const DropdownList = styled.ul`
   width: 300px;
   height: 168px;
   padding: 13px 68px;
+  margin: 6px 0 0;
 
   background: #242731;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4), 0px 2px 4px rgba(0, 0, 0, 0.25), 0px 8px 48px rgba(0, 0, 0, 0.6), 0px 2px 4px rgba(36, 38, 53, 0.08), 0px 4px 12px rgba(36, 38, 53, 0.1), 0px 16px 24px rgba(55, 58, 83, 0.16);
+  box-shadow:
+    0px 4px 12px rgba(0, 0, 0, 0.4),
+    0px 2px 4px rgba(0, 0, 0, 0.25),
+    0px 8px 48px rgba(0, 0, 0, 0.6),
+    0px 2px 4px rgba(36, 38, 53, 0.08),
+    0px 4px 12px rgba(36, 38, 53, 0.1),
+    0px 16px 24px rgba(55, 58, 83, 0.16);
   border-radius: 8px;
 
   z-index: 1;

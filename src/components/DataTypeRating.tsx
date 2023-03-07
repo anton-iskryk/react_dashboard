@@ -78,6 +78,10 @@ const Button = styled.button<ButtonProps>`
   cursor: pointer;
 
   transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${(props) => (props.backgroundColor)};
+  }
 `;
 
 const ButtonTitle = styled.span`
@@ -138,94 +142,3 @@ const DataTypeRating: React.FC = () => {
 };
 
 export default DataTypeRating;
-
-// import * as React from 'react';
-// import styled from 'styled-components';
-// import { useState } from 'react';
-
-// interface Data {
-//   id: number;
-//   percent: string;
-//   sales: number;
-//   color: string;
-// };
-
-// const ratingData: Data[] = [
-//   {
-//     id: 1,
-//     percent: '94%',
-//     sales: 116,
-//     color: '#18A0FB',
-
-//   },
-//   {
-//     id: 2,
-//     percent: '94%',
-//     sales: 116,
-//     color: '#ED2D95',
-//   },
-//   {
-//     id: 3,
-//     percent: '94%',
-//     sales: 116,
-//     color: '#3CDC86',
-//   },
-//   {
-//     id: 4,
-//     percent: '94%',
-//     sales: 116,
-//     color: '#F4A732',
-//   },
-//   {
-//     id: 5,
-//     percent: '94%',
-//     sales: 116,
-//     color: '#9B53F8',
-//   },
-// ];
-
-// const RatingContainer = styled.div`
-//   display: flex;
-// `;
-
-// const ChooseButton = styled.button`
-//   display: flex;
-// `;
-
-// const RatingDescription = styled.div`
-//   display: flex;
-// `;
-
-// const RatingPercentage = styled.div`
-//   display: flex;
-// `;
-
-// const RatingSales = styled.div`
-//   display: flex;
-// `;
-
-// const DataTypeRating = () => {
-//   const [selectedOptions, setSelectedOptions] = useState([]);
-
-//   return (
-//     <RatingContainer>
-//       {ratingData.map((data: Data) => (
-//         <React.Fragment key={data.id}>
-//           <ChooseButton active={selectedOptions.includes(data.id)} />
-
-          // <RatingDescription>
-          //   <RatingPercentage>
-          //     {`Rating ${data.percent}`}
-          //   </RatingPercentage>
-
-          //   <RatingSales>
-          //     {`${data.sales} sales`}
-          //   </RatingSales>
-          // </RatingDescription> 
-//         </React.Fragment>
-//       ))}
-//     </RatingContainer>
-//   );
-// };
-
-// export default DataTypeRating;
