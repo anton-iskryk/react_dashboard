@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ArrowUp from '../img/up.svg';
 import ArrowDown from '../img/down.svg';
@@ -89,14 +89,29 @@ const options = ['Charlottetown', 'Halifax', 'Naperville', 'Vernon', 'Montreal']
 const LocationDropdown = () => {
   const [selectedOption, setSelectedOption] = useState(options[1]);
   const [dropdownActive, setDropdownActive] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleItemClick = (option: string) => {
     setSelectedOption(option);
     setDropdownActive(false);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownActive(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   return (
-    <DropdownContainer>
+    <DropdownContainer ref={dropdownRef}>
       <DropdownHeader onClick={() => setDropdownActive(!dropdownActive)}>
         <DropdownTitle active={dropdownActive} onClick={() => setDropdownActive(!dropdownActive)}>
           {selectedOption}

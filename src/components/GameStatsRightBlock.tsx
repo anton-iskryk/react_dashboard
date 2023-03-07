@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import DataTypeRating from './DataTypeRating';
-import DataTypeUsers from '../components/DataTypeUsers';
 import LocationDropdown from '../components/LocationDropdown';
+import RightChart from '../components/RightChart';
 
 const DropdownTitle = styled.div`
   display: flex;
@@ -24,12 +23,12 @@ const GameStatsHeader = styled.div`
   justify-content: space-between;
 `;
 
-const GameStatsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 48px;
-`;
+// const ChartContainer = styled.div`
+//   display: block;
+//   /* align-items: center;
+//   justify-content: flex-start;
+//   gap: 48px; */
+// `;
 
 const GameStatsHeaderTitle = styled.span`
   margin-bottom: 24px;
@@ -49,24 +48,24 @@ const DataType = styled.span`
   color: rgba(255, 255, 255, 0.6);
 `;
 
-interface ChartData {
-  blue: number;
-  red: number;
-  green: number;
-  date: string;
-}
+// interface ChartData {
+//   blue: number;
+//   red: number;
+//   green: number;
+//   date: string;
+// }
 
-interface Users {
-  name: string;
-  date: string;
-}
+// interface Users {
+//   name: string;
+//   date: string;
+// }
 
-interface GameStatsLeftBlockProps {
-  chartData: ChartData[];
-  users: Users[];
-}
+// interface GameStatsLeftBlockProps {
+//   chartData: ChartData[];
+//   users: Users[];
+// }
 
-const GameStatsRightBlock: React.FC<GameStatsLeftBlockProps> = ({ users }) => {
+const GameStatsRightBlock: React.FC = () => {
   return (
     <GameStatsBlock>
       <GameStatsHeader>
@@ -78,11 +77,7 @@ const GameStatsRightBlock: React.FC<GameStatsLeftBlockProps> = ({ users }) => {
         </DropdownTitle>
       </GameStatsHeader>
 
-      <GameStatsContainer>
-        {/* <RightChart chartData={chartData} /> */}
-        <DataTypeRating />
-        <DataTypeUsers users={users} />
-      </GameStatsContainer>
+      <RightChart />
     </GameStatsBlock>
   );
 };

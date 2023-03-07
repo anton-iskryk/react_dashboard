@@ -103,7 +103,7 @@ const Dashboard = () => {
 
       <GameStatsBlocks>
         <GameStatsLeftBlock chartData={chartData} users={users} />
-        <GameStatsRightBlock chartData={chartData} users={users} />
+        <GameStatsRightBlock />
       </GameStatsBlocks>
     </>
   );
