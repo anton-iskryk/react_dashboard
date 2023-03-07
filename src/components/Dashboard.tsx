@@ -77,7 +77,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://vindev.cx.ua/dashboard/', {
+        const res = await axios.get('https://vindev.cx.ua/dashboard/', {
           headers: {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6ImV4ZW1wbGVAbWFpbC5jb20ifSwiaWF0IjoxNjc4MDkzNTIzfQ.Z6ipWb26LZVFahDxYhYLq-MBWSW4V9l2wJaYFv4A-2o',
           },
