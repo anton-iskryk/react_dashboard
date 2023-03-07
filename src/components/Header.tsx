@@ -9,6 +9,7 @@ const HeaderBlock = styled.div`
   height: 68px;
   width: calc(100% - 48px);
   max-width: 1920px;
+  margin-bottom: 24px;
 `;
 
 const HeaderTitle = styled.div`
