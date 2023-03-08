@@ -4,16 +4,17 @@ import TableDropdown from '../components/TableDropdown';
 import CardsBlock from '../components/CardsBlock';
 import InfoIcon from '../img/info.svg';
 
-const GameSalesBlock = styled.div`
+const GeneralSalesBlock = styled.div`
   width: 1756px;
   height: 480px;
   padding: 24px 32px 32px;
+  margin-bottom: 28px;
 
   background: #242731;
   border-radius: 4px;
 `;
 
-const GameSalesHeader = styled.div`
+const GeneralSalesHeader = styled.div`
   display: flex;
   align-items: start;
   justify-content: space-between;
@@ -26,7 +27,7 @@ const TitleContainer = styled.div`
   gap: 14px;
 `;
 
-const GameSalesTitle = styled.span`
+const GeneralSalesTitle = styled.span`
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -145,10 +146,10 @@ const GeneralSales: React.FC<GeneralSalesBlockProps> = ({ tableData }) => {
   ];
 
   return (
-    <GameSalesBlock>
-      <GameSalesHeader>
+    <GeneralSalesBlock>
+      <GeneralSalesHeader>
         <TitleContainer>
-          <GameSalesTitle>General Sales / Time</GameSalesTitle>
+          <GeneralSalesTitle>General Sales / Time</GeneralSalesTitle>
           <InfoBlock>
             <IconContainer
               onMouseEnter={() => setShowInfo(true)}
@@ -163,10 +164,10 @@ const GeneralSales: React.FC<GeneralSalesBlockProps> = ({ tableData }) => {
         </TitleContainer>
 
         <TableDropdown items={items} />
-      </GameSalesHeader>
+      </GeneralSalesHeader>
 
       <CardsBlock tableData={tableData} />
-    </GameSalesBlock>
+    </GeneralSalesBlock>
   );
 };
 
