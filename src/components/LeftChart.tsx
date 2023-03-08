@@ -88,6 +88,7 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
             strokeWidth: 5,
             r: 2,
           }}
+          isAnimationActive={false}
         />
         <Area 
           type='monotone'
@@ -101,6 +102,7 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
             strokeWidth: 5,
             r: 2,
           }}
+          isAnimationActive={false}
         />
         <Area
           type='monotone'
@@ -114,6 +116,7 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
             strokeWidth: 5,
             r: 2,
           }}
+          isAnimationActive={false}
         />
     </AreaChart>
   );
