@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 import UpperFramesBlock from '../components/UpperFramesBlock';
 import GameStatsLeftBlock from '../components/GameStatsLeftBlock';
 import GameStatsRightBlock from '../components/GameStatsRightBlock';
+import GeneralSales from '../components/GeneralSales';
 
 const GameStatsBlocks = styled.div`
   display: flex;
@@ -32,6 +33,22 @@ interface ChartData {
   green: number;
   date: string;
 }
+
+interface TableData {
+  model: {
+    image: string | null;
+    name: string;
+  };
+  card_name: string;
+  card_number: string;
+  type: string;
+  limited: number;
+  operations: number;
+  date: string;
+  rating: number;
+  status: string;
+  price: string;
+};
 
 interface Data {
   statistic: {
@@ -72,6 +89,7 @@ const Dashboard = () => {
   const [statistic, setStatistic] = useState<Statistic | undefined>(undefined);
   const [users, setUsers] = useState<Users[] | undefined>(undefined);
   const [chartData, setChartData] = useState<ChartData[] | undefined>(undefined);
+  const [tableData, setTableData] = useState<TableData[] | undefined>(undefined);
   const [data, setData] = useState<Data | undefined>(undefined);
 
   useEffect(() => {
@@ -86,6 +104,7 @@ const Dashboard = () => {
         setStatistic(res.data.statistic);
         setUsers(res.data.users);
         setChartData(res.data.chartData);
+        setTableData(res.data.general_sales_time);
       } catch (error) {
         console.log(error);
       }
@@ -93,7 +112,7 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  if (!data || !statistic || !users || !chartData) {
+  if (!data || !statistic || !users || !chartData || !tableData) {
     return <Loader />;
   }
 
@@ -105,6 +124,8 @@ const Dashboard = () => {
         <GameStatsLeftBlock chartData={chartData} users={users} />
         <GameStatsRightBlock />
       </GameStatsBlocks>
+
+      <GeneralSales tableData={tableData} />
     </>
   );
 };

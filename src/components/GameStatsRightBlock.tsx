@@ -21,6 +21,7 @@ const GameStatsHeader = styled.div`
   display: flex;
   align-items: start;
   justify-content: space-between;
+  margin-bottom: 32px;
 `;
 
 // const ChartContainer = styled.div`
@@ -31,8 +32,6 @@ const GameStatsHeader = styled.div`
 // `;
 
 const GameStatsHeaderTitle = styled.span`
-  margin-bottom: 24px;
-
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;

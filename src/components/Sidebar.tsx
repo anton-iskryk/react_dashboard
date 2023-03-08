@@ -14,7 +14,7 @@ const SidebarBlock = styled.div`
   align-items: center;
   justify-content: flex-start;
   background: #242731;
-  height: 100vh;
+  min-height: 100%;
   min-width: 84px;
 `;
 

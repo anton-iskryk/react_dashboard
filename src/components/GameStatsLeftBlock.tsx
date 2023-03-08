@@ -24,18 +24,17 @@ const GameStatsHeader = styled.div`
   display: flex;
   align-items: start;
   justify-content: space-between;
+  margin-bottom: 24px;
 `;
 
 const GameStatsContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: flex-start;
   gap: 48px;
 `;
 
 const GameStatsHeaderTitle = styled.span`
-  margin-bottom: 24px;
-
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
