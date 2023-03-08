@@ -13,11 +13,6 @@ const GameSalesBlock = styled.div`
   border-radius: 4px;
 `;
 
-const DropdownTitle = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
 const GameSalesHeader = styled.div`
   display: flex;
   align-items: start;
@@ -79,14 +74,6 @@ const InfoText = styled.div<{ visible: boolean }>`
   transition: opacity .3s;
 `;
 
-const TableSettings = styled.span`
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-
-  color: rgba(255, 255, 255, 0.6);
-`;
-
 interface TableData {
   model: {
     image: string | null;
@@ -110,6 +97,53 @@ interface GeneralSalesBlockProps {
 const GeneralSales: React.FC<GeneralSalesBlockProps> = ({ tableData }) => {
   const [showInfo, setShowInfo] = useState(false);
 
+  const items = [
+    {
+      label: 'Source',
+      value: '1',
+    },
+    {
+      label: 'Card model',
+      value: '2',
+    },
+    {
+      label: 'Card number',
+      value: '3',
+    },
+    {
+      label: 'Card name',
+      value: '4',
+    },
+    {
+      label: 'Type',
+      value: '5',
+    },
+    {
+      label: 'Limited',
+      value: '6',
+    },
+    {
+      label: '№ Operations',
+      value: '7',
+    },
+    {
+      label: 'Date of lost operations',
+      value: '8',
+    },
+    {
+      label: 'Rating',
+      value: '9',
+    },
+    {
+      label: 'Status',
+      value: '10',
+    },
+    {
+      label: 'Price',
+      value: '11',
+    },
+  ];
+
   return (
     <GameSalesBlock>
       <GameSalesHeader>
@@ -128,10 +162,7 @@ const GeneralSales: React.FC<GeneralSalesBlockProps> = ({ tableData }) => {
           </InfoBlock>
         </TitleContainer>
 
-        <DropdownTitle>
-          <TableSettings>Table settings</TableSettings>
-          <TableDropdown />
-        </DropdownTitle>
+        <TableDropdown items={items} />
       </GameSalesHeader>
 
       <CardsBlock tableData={tableData} />
