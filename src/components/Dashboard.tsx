@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -8,6 +7,14 @@ import GameStatsLeftBlock from '../components/GameStatsLeftBlock';
 import GameStatsRightBlock from '../components/GameStatsRightBlock';
 import GeneralSales from '../components/GeneralSales';
 
+import {
+  Data,
+  Statistic,
+  Users,
+  ChartData,
+  TableData,
+} from '../interfaces/interfaces';
+
 const GameStatsBlocks = styled.div`
   display: flex;
   gap: 16px;
@@ -15,83 +22,12 @@ const GameStatsBlocks = styled.div`
   flex-grow: 1;
 `;
 
-interface Statistic {
-  iam_users: number;
-  iam_roles: number;
-  iam_policies: number;
-  compute_resources: number;
-  games: number;
-}
-
-interface Users {
-  name: string;
-  date: string;
-}
-
-interface ChartData {
-  blue: number;
-  red: number;
-  green: number;
-  date: string;
-}
-
-interface TableData {
-  model: {
-    image: string | null;
-    name: string;
-  };
-  card_name: string;
-  card_number: string;
-  type: string;
-  limited: number;
-  operations: number;
-  date: string;
-  rating: number;
-  status: string;
-  price: string;
-};
-
-interface Data {
-  statistic: {
-    iam_users: number;
-    iam_roles: number;
-    iam_policies: number;
-    compute_resources: number;
-    games: number;
-  };
-  chartData: {
-    blue: number;
-    red: number;
-    green: number;
-    date: string;
-  }[];
-  users: {
-    name: string;
-    date: string;
-  }[];
-  general_sales_time: {
-    model: {
-      image: string | null;
-      name: string;
-    };
-    card_name: string;
-    card_number: string;
-    type: string;
-    limited: number;
-    operations: number;
-    date: string;
-    rating: number;
-    status: string;
-    price: string;
-  }[];
-}
-
 const Dashboard = () => {
+  const [data, setData] = useState<Data | undefined>(undefined);
   const [statistic, setStatistic] = useState<Statistic | undefined>(undefined);
   const [users, setUsers] = useState<Users[] | undefined>(undefined);
   const [chartData, setChartData] = useState<ChartData[] | undefined>(undefined);
   const [tableData, setTableData] = useState<TableData[] | undefined>(undefined);
-  const [data, setData] = useState<Data | undefined>(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -113,7 +49,12 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  if (!data || !statistic || !users || !chartData || !tableData) {
+  if (!data
+      || !statistic
+      || !users
+      || !chartData
+      || !tableData
+    ) {
     return <Loader />;
   }
 

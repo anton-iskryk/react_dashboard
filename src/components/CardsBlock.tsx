@@ -2,30 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Dots from '../img/action-menu.svg';
 import Card from '../img/card-icon.png';
-
-interface TableData {
-  model: {
-    image: null | string;
-    name: string;
-  };
-  card_name: string;
-  card_number: string;
-  type: string;
-  limited: number;
-  operations: number;
-  date: string;
-  rating: number;
-  status: string;
-  price: string;
-}
-
-interface TableCellProps {
-  alignCenter?: boolean;
-}
-
-interface CardsBlockProps {
-  tableData: TableData[];
-}
+import {
+  TableData,
+  TableCellProps,
+  CardsBlockProps
+} from '../interfaces/interfaces';
 
 const TableWrapper = styled.table`
   width: 100%;
@@ -37,14 +18,10 @@ const TableHead = styled.thead`
   line-height: 12px;
 
   color: rgba(255, 255, 255, 0.6);
-
-  &:not(:last-child) {
-    /* margin-right: 60px; */
-  }
 `;
 
 const TableBody = styled.tbody`
-  margin-top: 20px;
+  width: 1920px;
 `;
 
 const TableRow = styled.tr`
@@ -64,7 +41,7 @@ const TableCell = styled.td<TableCellProps>`
 
   color: #fff;
   text-align: ${(props) => props.alignCenter ? 'center' : 'left'};
-  height: 72px;
+  padding: 16px 0;
   white-space: pre;
 `;
 
@@ -93,14 +70,15 @@ const TableCellDesc = styled.span`
 
 const IconContainer = styled.div<TableCellProps>`
   display: flex;
-  text-align: center;
-  width: 24px;
-  height: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const OptionIcon = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 `;
 
@@ -135,14 +113,15 @@ const CardsBlock: React.FC<CardsBlockProps> = ({ tableData }) => {
         <CardTitle>Card model</CardTitle>
         <CardTitle>Card name</CardTitle>
         <CardTitle>Type</CardTitle>
-        <CardTitle>Limited</CardTitle>
-        <CardTitle>№ Operations</CardTitle>
+        <CardTitle alignCenter>Limited</CardTitle>
+        <CardTitle alignCenter>№ Operations</CardTitle>
         <CardTitle>Date of lost operations</CardTitle>
         <CardTitle>Rating</CardTitle>
         <CardTitle>Status</CardTitle>
         <CardTitle>Price</CardTitle>
         <CardTitle alignCenter>Options</CardTitle>
       </TableHead>
+
       <TableBody>
         {items.map((item: TableData, index: number) => (
           <TableRow key={index}>
@@ -155,10 +134,12 @@ const CardsBlock: React.FC<CardsBlockProps> = ({ tableData }) => {
                 {cardModelText(item.model.name)}
               </CardTitleContainer>
             </TableCell>
+
             <TableCell>
               {`${item.card_name}\n`}
               <TableCellDesc>{`Card ${item.card_number}`}</TableCellDesc>
             </TableCell>
+
             <TableCell>{item.type}</TableCell>
             <TableCell alignCenter>{item.limited}</TableCell>
             <TableCell alignCenter>{item.operations}</TableCell>
@@ -166,7 +147,8 @@ const CardsBlock: React.FC<CardsBlockProps> = ({ tableData }) => {
             <TableCell>{item.rating}</TableCell>
             <TableCell>{item.status}</TableCell>
             <TableCell>{item.price}</TableCell>
-            <TableCell alignCenter>
+
+            <TableCell>
               <IconContainer>
                 <OptionIcon src={Dots} alt='option' />
               </IconContainer>

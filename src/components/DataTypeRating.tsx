@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { RatingData, ButtonProps } from '../interfaces/interfaces';
 
-const ratingData: Data[] = [
+const ratingData: RatingData[] = [
   {
     id: 1,
     percent: '94%',
@@ -35,17 +36,6 @@ const ratingData: Data[] = [
   },
 ];
 
-interface Data {
-  id: number;
-  percent: string;
-  sales: number;
-  color: string;
-}
-
-// interface Props {
-//   ratingData: Data[];
-// }
-
 const ButtonList = styled.ul`
   list-style: none;
   padding: 0;
@@ -58,11 +48,6 @@ const ButtonItem = styled.li`
   gap: 16px;
   margin: 10px 0;
 `;
-
-interface ButtonProps {
-  isSelected: boolean;
-  backgroundColor: string;
-}
 
 const Button = styled.button<ButtonProps>`
   display: block;
@@ -77,7 +62,7 @@ const Button = styled.button<ButtonProps>`
   padding: 10px;
   cursor: pointer;
 
-  transition: background-color 0.3s;
+  transition: background-color .3s;
 
   &:hover {
     background-color: ${(props) => (props.backgroundColor)};
@@ -126,6 +111,7 @@ const DataTypeRating: React.FC = () => {
             isSelected={selectedButtons.includes(data.id)}
             backgroundColor={data.color}
           />
+
           <ButtonTitle>
             <ButtonTitlePercentage>
               {`Rating ${data.percent}`}

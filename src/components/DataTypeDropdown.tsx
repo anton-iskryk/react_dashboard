@@ -2,10 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ArrowUp from '../img/up.svg';
 import ArrowDown from '../img/down.svg';
-
-interface DropdownItemProps {
-  active: boolean;
-}
+import { DropdownItemProps } from '../interfaces/interfaces'
 
 const DropdownContainer = styled.div`
   position: relative;
@@ -37,10 +34,8 @@ const DropdownArrow = styled.img<DropdownItemProps>`
 const DropdownList = styled.ul`
   position: absolute;
   right: 0;
-  left: auto;
 
   width: 300px;
-  height: 168px;
   padding: 13px 68px;
   margin: 6px 0 0;
 
@@ -67,7 +62,7 @@ const DropdownItem = styled.li<DropdownItemProps>`
   color: #fff;
   cursor: pointer;
 
-  &:not(last-child) {
+  &:not(:last-child) {
     margin-bottom: 20px;
   }
 `;
@@ -81,6 +76,7 @@ const DropdownChooseButton = styled.button<DropdownItemProps>`
   display: block;
   width: 22px;
   height: 22px;
+
   border: 1.5px double ${props => (props.active ? '#242731' : 'transparent')};
   outline: 1.5px solid ${props => (props.active ? '#8941FF' : '#60677A')};
   border-radius: 50%;
@@ -124,11 +120,18 @@ const DataTypeDropdown = () => {
   return (
     <DropdownContainer ref={dropdownRef}>
       <DropdownHeader onClick={() => setDropdownActive(!dropdownActive)}>
-        <DropdownTitle active={dropdownActive} onClick={() => setDropdownActive(!dropdownActive)}>
+        <DropdownTitle
+          active={dropdownActive}
+          onClick={() => setDropdownActive(!dropdownActive)}
+        >
           {selectedOption}
-          <DropdownArrow src={dropdownActive ? ArrowUp : ArrowDown} active={dropdownActive} />
+          <DropdownArrow
+            src={dropdownActive ? ArrowUp : ArrowDown}
+            active={dropdownActive}
+          />
         </DropdownTitle>
       </DropdownHeader>
+
       {dropdownActive && (
         <DropdownList>
           {options.map((option) => (
