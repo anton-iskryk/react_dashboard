@@ -24,13 +24,6 @@ const GameStatsHeader = styled.div`
   margin-bottom: 32px;
 `;
 
-// const ChartContainer = styled.div`
-//   display: block;
-//   /* align-items: center;
-//   justify-content: flex-start;
-//   gap: 48px; */
-// `;
-
 const GameStatsHeaderTitle = styled.span`
   font-weight: 500;
   font-size: 18px;
@@ -46,23 +39,6 @@ const DataType = styled.span`
 
   color: rgba(255, 255, 255, 0.6);
 `;
-
-// interface ChartData {
-//   blue: number;
-//   red: number;
-//   green: number;
-//   date: string;
-// }
-
-// interface Users {
-//   name: string;
-//   date: string;
-// }
-
-// interface GameStatsLeftBlockProps {
-//   chartData: ChartData[];
-//   users: Users[];
-// }
 
 const GameStatsRightBlock: React.FC = () => {
   return (

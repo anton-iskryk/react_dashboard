@@ -6,9 +6,9 @@ const HeaderBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
-  width: calc(100% - 48px);
-  max-width: 1920px;
+  padding: 20px 0;
+  /* width: calc(100% - 48px); */
+  /* max-width: 1920px; */
   margin-bottom: 24px;
 `;
 

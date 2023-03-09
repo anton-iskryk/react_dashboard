@@ -126,7 +126,6 @@ const RightChart: React.FC = () => {
               position="center"
             />
           </Pie>
-          <Tooltip />
           <Legend
             verticalAlign="top"
             align="right"

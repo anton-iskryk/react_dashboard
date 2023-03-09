@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const Homepage = styled.div`
   display: flex;
   gap: 32px;
+  width: calc(100% - 48px);
 `;
 
 const RightSideContainer = styled.div`

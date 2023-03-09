@@ -8,16 +8,18 @@ import frameIcon5 from '../img/upper_frame_5.svg';
 
 const UpperFrames = styled.div`
   display: flex;
+  flex-grow: 1;
   gap: 20px;
   margin-bottom: 16px;
+  width: 100%;
 `;
 
 const UpperFrame = styled.div`
   display: flex;
   align-items: center;
   gap: 22px;
-  width: 335px;
-  height: 104px;
+  width: 100%;
+  padding: 20px;
   background-color: #242731;
   box-shadow: 0px 8px 28px rgba(48, 48, 49, 0.1);
   border-radius: 8px;
@@ -27,7 +29,6 @@ const UpperFrameIcon1 = styled.img`
   width: 48px;
   height: 48px;
   padding: 12px;
-  margin-left: 20px;
   background: rgba(66, 204, 88, 0.15);
   border-radius: 8px;
 `;
@@ -36,7 +37,6 @@ const UpperFrameIcon2 = styled.img`
   width: 48px;
   height: 48px;
   padding: 12px;
-  margin-left: 20px;
   background: rgba(73, 152, 238, 0.15);
   border-radius: 8px;
 `;
@@ -45,7 +45,6 @@ const UpperFrameIcon3 = styled.img`
   width: 48px;
   height: 48px;
   padding: 12px;
-  margin-left: 20px;
   background: rgba(242, 93, 93, 0.15);
   border-radius: 8px;
 `;
@@ -54,7 +53,6 @@ const UpperFrameIcon4 = styled.img`
   width: 48px;
   height: 48px;
   padding: 12px;
-  margin-left: 20px;
   background: rgba(244, 167, 50, 0.15);
   border-radius: 8px;
 `;
@@ -63,7 +61,6 @@ const UpperFrameIcon5 = styled.img`
   width: 48px;
   height: 48px;
   padding: 12px;
-  margin-left: 20px;
   background: rgba(155, 83, 248, 0.15);
   border-radius: 8px;
 `;
@@ -112,53 +109,51 @@ const UpperFramesBlock: React.FC<StatisticProps> = ({ statistic }) => {
 
   return (
     <UpperFrames>
-          <>
-          <UpperFrame>
-            <UpperFrameIcon1 src={frameIcon1} alt='frame icon' />
+      <UpperFrame>
+        <UpperFrameIcon1 src={frameIcon1} alt='frame icon' />
 
-            <UpperFrameDescription>
-              <Number>{iam_users}</Number>
-              <Title>IAM Users</Title>
-            </UpperFrameDescription>
-          </UpperFrame>
+        <UpperFrameDescription>
+          <Number>{iam_users}</Number>
+          <Title>IAM Users</Title>
+        </UpperFrameDescription>
+      </UpperFrame>
 
-          <UpperFrame>
-            <UpperFrameIcon2 src={frameIcon2} alt='frame icon' />
+      <UpperFrame>
+        <UpperFrameIcon2 src={frameIcon2} alt='frame icon' />
 
-            <UpperFrameDescription>
-              <Number>{iam_roles}</Number>
-              <Title>IAM Roles</Title>
-            </UpperFrameDescription>
-          </UpperFrame>
+        <UpperFrameDescription>
+          <Number>{iam_roles}</Number>
+          <Title>IAM Roles</Title>
+        </UpperFrameDescription>
+      </UpperFrame>
 
-          <UpperFrame>
-            <UpperFrameIcon3 src={frameIcon3} alt='frame icon' />
+      <UpperFrame>
+        <UpperFrameIcon3 src={frameIcon3} alt='frame icon' />
 
-            <UpperFrameDescription>
-              <Number>{iam_policies}</Number>
-              <Title>IAM Policies</Title>
-            </UpperFrameDescription>
-          </UpperFrame>
+        <UpperFrameDescription>
+          <Number>{iam_policies}</Number>
+          <Title>IAM Policies</Title>
+        </UpperFrameDescription>
+      </UpperFrame>
 
-          <UpperFrame>
-            <UpperFrameIcon4 src={frameIcon4} alt='frame icon' />
+      <UpperFrame>
+        <UpperFrameIcon4 src={frameIcon4} alt='frame icon' />
 
-            <UpperFrameDescription>
-              <Number>{compute_resources}</Number>
-              <Title>Compute Resources</Title>
-            </UpperFrameDescription>
-          </UpperFrame>
+        <UpperFrameDescription>
+          <Number>{compute_resources}</Number>
+          <Title>Compute Resources</Title>
+        </UpperFrameDescription>
+      </UpperFrame>
 
-          <UpperFrame>
-            <UpperFrameIcon5 src={frameIcon5} alt='frame icon' />
+      <UpperFrame>
+        <UpperFrameIcon5 src={frameIcon5} alt='frame icon' />
 
-            <UpperFrameDescription>
-              <Number>{games}</Number>
-              <Title>Games</Title>
-            </UpperFrameDescription>
-          </UpperFrame>
-        </>
-      </UpperFrames>
+        <UpperFrameDescription>
+          <Number>{games}</Number>
+          <Title>Games</Title>
+        </UpperFrameDescription>
+      </UpperFrame>
+    </UpperFrames>
   );
 };
 

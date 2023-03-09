@@ -12,6 +12,7 @@ const GameStatsBlocks = styled.div`
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
+  flex-grow: 1;
 `;
 
 interface Statistic {

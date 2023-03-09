@@ -5,9 +5,9 @@ import CardsBlock from '../components/CardsBlock';
 import InfoIcon from '../img/info.svg';
 
 const GeneralSalesBlock = styled.div`
-  width: 1756px;
-  height: 480px;
-  padding: 24px 32px 32px;
+  /* width: 1756px; */
+  /* height: 480px; */
+  padding: 24px 32px 20px;
   margin-bottom: 28px;
 
   background: #242731;

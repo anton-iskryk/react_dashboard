@@ -15,14 +15,14 @@ const SidebarBlock = styled.div`
   justify-content: flex-start;
   background: #242731;
   min-height: 100%;
-  min-width: 84px;
+  padding: 13px 19px 0 18px;
 `;
 
 const SidebarLogo = styled.img`
   cursor: pointer;
   width: 40px;
   height: 40px;
-  margin: 14px 0 50px;
+  margin-bottom: 50px;
 `;
 
 const SidebarList = styled.div`
