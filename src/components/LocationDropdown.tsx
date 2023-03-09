@@ -3,10 +3,7 @@ import styled from 'styled-components';
 import ArrowUp from '../img/up.svg';
 import ArrowDown from '../img/down.svg';
 import Tick from '../img/green-tick.svg';
-
-interface DropdownItemProps {
-  active: boolean;
-}
+import { DropdownItemProps } from '../interfaces/interfaces';
 
 const DropdownContainer = styled.div`
   position: relative;
@@ -38,10 +35,8 @@ const DropdownArrow = styled.img<DropdownItemProps>`
 const DropdownList = styled.ul`
   position: absolute;
   right: 0;
-  left: auto;
 
   width: 237px;
-  height: 236px;
   padding: 8px;
   margin: 6px 0 0;
 
@@ -118,6 +113,7 @@ const LocationDropdown = () => {
           <DropdownArrow src={dropdownActive ? ArrowUp : ArrowDown} active={dropdownActive} />
         </DropdownTitle>
       </DropdownHeader>
+
       {dropdownActive && (
         <DropdownList>
           {options.map((option) => (

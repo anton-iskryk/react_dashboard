@@ -5,6 +5,7 @@ import frameIcon2 from '../img/upper_frame_2.svg';
 import frameIcon3 from '../img/upper_frame_3.svg';
 import frameIcon4 from '../img/upper_frame_4.svg';
 import frameIcon5 from '../img/upper_frame_5.svg';
+import { StatisticProps } from '../interfaces/interfaces';
 
 const UpperFrames = styled.div`
   display: flex;
@@ -85,18 +86,6 @@ const Title = styled.span`
 
   color: #A2A4A8;
 `;
-
-interface Statistic {
-  iam_users: number;
-  iam_roles: number;
-  iam_policies: number;
-  compute_resources: number;
-  games: number;
-}
-
-interface StatisticProps {
-  statistic: Statistic;
-}
 
 const UpperFramesBlock: React.FC<StatisticProps> = ({ statistic }) => {
   const {

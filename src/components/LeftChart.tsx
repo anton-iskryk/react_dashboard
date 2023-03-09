@@ -1,16 +1,6 @@
 import React from 'react';
-import { AreaChart, ResponsiveContainer, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-
-interface ChartData {
-  blue: number;
-  red: number;
-  green: number;
-  date: string;
-}
-
-interface ChartDataProps {
-  chartData: ChartData[];
-}
+import { AreaChart, ResponsiveContainer, Area, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { ChartDataProps } from '../interfaces/interfaces';
 
 const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
   const chartDataUpdated = chartData.map(data => {
@@ -26,15 +16,18 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
     <ResponsiveContainer width={876} height={232}>
       <AreaChart data={chartDataUpdated} stackOffset='expand' margin={{ left: -20 }}>
         <CartesianGrid stroke='rgba(255, 255, 255, 0.04)' />
+
         <defs>
           <linearGradient id="blueGr" x1="0" y1="0" x2="0" y2="1">
             <stop offset="80%" stopColor="rgb(15, 129, 206)" stopOpacity={0.2}/>
             <stop offset="100%" stopColor="rgb(15, 129, 206)" stopOpacity={0}/>
           </linearGradient>
+
           <linearGradient id="redGr" x1="0" y1="0" x2="0" y2="1">
             <stop offset="80%" stopColor="rgb(197, 45, 129)" stopOpacity={0.2}/>
             <stop offset="100%" stopColor="rgb(197, 45, 129)" stopOpacity={0}/>
           </linearGradient>
+
           <linearGradient id="greenGr" x1="0" y1="0" x2="0" y2="1">
             <stop offset="80%" stopColor="rgb(27, 186, 100)" stopOpacity={0.2}/>
             <stop offset="100%" stopColor="rgb(27, 186, 100)" stopOpacity={0}/>
@@ -52,6 +45,7 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
             tickMargin={16}
             tickLine={false}
           />
+
         <YAxis
             type="number"
             tickLine={false}
@@ -63,7 +57,7 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
               color: 'rgba(255, 255, 255, 0.6)',
             }}
           />
-        <Tooltip />
+
           <Area
             type='monotone'
             dataKey='blue'
@@ -76,8 +70,8 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
               strokeWidth: 5,
               r: 2,
             }}
-            isAnimationActive={false}
           />
+
           <Area 
             type='monotone'
             dataKey='red'
@@ -90,8 +84,8 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
               strokeWidth: 5,
               r: 2,
             }}
-            isAnimationActive={false}
           />
+
           <Area
             type='monotone'
             dataKey='green'
@@ -104,7 +98,6 @@ const GameStats: React.FC<ChartDataProps> = ({ chartData }) => {
               strokeWidth: 5,
               r: 2,
             }}
-            isAnimationActive={false}
           />
       </AreaChart>
     </ResponsiveContainer>

@@ -55,6 +55,12 @@ export interface Users {
   date: string;
 }
 
+// UpperFramesBlock
+
+export interface StatisticProps {
+  statistic: Statistic;
+}
+
 // CardsBlock
 
 export interface TableData {
@@ -83,7 +89,7 @@ export interface CardsBlockProps {
   tableData: TableData[];
 }
 
-// DataTypeDropdown for styled
+// DataTypeDropdown, LocationDropdown, TableDropdown for styled
 
 export interface DropdownItemProps {
   active: boolean;
@@ -103,5 +109,53 @@ export interface ButtonProps {
   backgroundColor: string;
 }
 
-// 
+// DataTypeUsers
+
+export type Props = {
+  name: string,
+  date: string,
+};
+
+export interface DataTypeUsersProps {
+  users: Users[];
+}
+
+// GameStatsLeftBlock
+
+export interface GameStatsLeftBlockProps {
+  chartData: ChartData[];
+  users: Users[];
+}
+
+// GeneralSalesBlock
+
+export interface GeneralSalesBlockProps {
+  tableData: TableData[];
+};
+
+// LeftChart
+
+export interface ChartDataProps {
+  chartData: ChartData[];
+}
+
+// RightChart
+
+export interface CustomLabelProps {
+  title: string;
+  percent: string;
+  desc: string;
+  days: string;
+}
+
+// TableDropDown
+
+interface DropdownItem {
+  label: string;
+  value: string;
+}
+
+export interface DropdownProps {
+  items: DropdownItem[];
+}
 

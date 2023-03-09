@@ -1,19 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-type Props = {
-  name: string,
-  date: string,
-};
-
-interface Users {
-  name: string;
-  date: string;
-}
-
-interface DataTypeUsersProps {
-  users: Users[];
-}
+import { DataTypeUsersProps }from '../interfaces/interfaces';
 
 const UsersBlock = styled.div`
   display: flex;

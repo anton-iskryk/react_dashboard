@@ -6,9 +6,8 @@ const HeaderBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 20px 0;
-  /* width: calc(100% - 48px); */
-  /* max-width: 1920px; */
   margin-bottom: 24px;
 `;
 
@@ -41,7 +40,7 @@ const LoginUserName = styled.div`
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #fff;
 `;
 
 const Header = () => {
@@ -50,30 +49,12 @@ const Header = () => {
       <HeaderTitle>
         dashboard
       </HeaderTitle>
+
       <HeaderLogin>
         <LoginIcon src={userIcon} alt='logo' />
         <LoginUserName>Username</LoginUserName>
       </HeaderLogin>
     </HeaderBlock>
-    
-    // <div className='home'>
-    //   <div className="posts">
-    //     {posts.map(post => (
-    //       <div className="post" key={post.id}>
-    //         <div className='img'>
-    //           <img src={post.img} alt="post" />
-    //         </div>
-    //         <div className="content">
-    //           <Link className='link' to={`/post/:${post.id}`}>
-    //             <h1>{post.title}</h1>
-    //           </Link>
-    //             <p>{post.desc}</p>
-    //             <button>Read more</button>
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
   );
 };
 

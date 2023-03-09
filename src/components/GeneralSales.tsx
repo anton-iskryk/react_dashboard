@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TableDropdown from '../components/TableDropdown';
 import CardsBlock from '../components/CardsBlock';
 import InfoIcon from '../img/info.svg';
+import { GeneralSalesBlockProps } from '../interfaces/interfaces';
 
 const GeneralSalesBlock = styled.div`
   padding: 24px 32px 20px;
@@ -72,26 +73,6 @@ const InfoText = styled.div<{ visible: boolean }>`
 
   transition: opacity .3s;
 `;
-
-interface TableData {
-  model: {
-    image: string | null;
-    name: string;
-  };
-  card_name: string;
-  card_number: string;
-  type: string;
-  limited: number;
-  operations: number;
-  date: string;
-  rating: number;
-  status: string;
-  price: string;
-};
-
-interface GeneralSalesBlockProps {
-  tableData: TableData[];
-};
 
 const GeneralSales: React.FC<GeneralSalesBlockProps> = ({ tableData }) => {
   const [showInfo, setShowInfo] = useState(false);

@@ -9,6 +9,7 @@ const DropdownTitle = styled.div`
 `;
 
 const GameStatsBlock = styled.div`
+  width: 100%;
   min-width: 428px;
   max-height: 344px;
   padding: 24px 32px 32px;

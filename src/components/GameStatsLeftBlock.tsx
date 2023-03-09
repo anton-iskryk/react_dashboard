@@ -4,6 +4,7 @@ import DataTypeRating from './DataTypeRating';
 import DataTypeDropdown from './DataTypeDropdown';
 import DataTypeUsers from '../components/DataTypeUsers';
 import LeftChart from './LeftChart';
+import { GameStatsLeftBlockProps } from '../interfaces/interfaces';
 
 
 const DropdownTitle = styled.div`
@@ -56,23 +57,6 @@ const DataType = styled.span`
 
   color: rgba(255, 255, 255, 0.6);
 `;
-
-interface ChartData {
-  blue: number;
-  red: number;
-  green: number;
-  date: string;
-}
-
-interface Users {
-  name: string;
-  date: string;
-}
-
-interface GameStatsLeftBlockProps {
-  chartData: ChartData[];
-  users: Users[];
-}
 
 const GameStatsLeftBlock: React.FC<GameStatsLeftBlockProps> = ({ chartData, users }) => {
   return (

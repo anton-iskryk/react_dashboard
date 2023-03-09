@@ -1,6 +1,14 @@
 import React from 'react';
-import { PieChart, Pie, Cell, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Label,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
 import styled from 'styled-components';
+import { CustomLabelProps } from '../interfaces/interfaces';
 
 const ChartContainer = styled.div`
   width: 100%;
@@ -22,13 +30,6 @@ const data = [
 ];
 const colors = ['#18A0FB', '#3CDC86', '#ED2D95'];
 
-interface CustomLabelProps {
-  title: string;
-  percent: string;
-  desc: string;
-  days: string;
-}
-
 const RightChart: React.FC = () => {
   const CustomLabel = ({ title, percent, desc, days }: CustomLabelProps) => {
     return (
@@ -46,6 +47,7 @@ const RightChart: React.FC = () => {
         >
           {title}
         </text>
+
         <text
           x='35%'
           y='45%'
@@ -59,6 +61,7 @@ const RightChart: React.FC = () => {
         >
           {percent}
         </text>
+
         <text
           x='35%'
           y='65%'
@@ -70,6 +73,7 @@ const RightChart: React.FC = () => {
         >
           {desc}
         </text>
+
         <text
           x='35%'
           y='72%'
@@ -85,18 +89,16 @@ const RightChart: React.FC = () => {
     );
   };
 
-  const renderLegends = (value: string) => {
-    return (
-      <LegendItem>
-        {value}
-      </LegendItem>
-    );
-  };
+  const renderLegends = (value: string) => (
+    <LegendItem>
+      {value}
+    </LegendItem>
+  );
 
   return (
     <ChartContainer>
-      <ResponsiveContainer>
-        <PieChart width={364} height={232}>
+      <ResponsiveContainer width={364} height={232}>
+        <PieChart>
           <Pie
             stroke='none'
             data={data}
@@ -126,6 +128,7 @@ const RightChart: React.FC = () => {
               position="center"
             />
           </Pie>
+
           <Legend
             verticalAlign="top"
             align="right"
