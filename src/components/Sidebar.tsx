@@ -25,7 +25,7 @@ const SidebarLogo = styled.img`
   margin: 14px 0 50px;
 `;
 
-const SidebarList = styled.ul`
+const SidebarList = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -35,19 +35,29 @@ const SidebarList = styled.ul`
   height: 100%;
 `;
 
-const SidebarIcon = styled.img`
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+const SidebarLink = styled.a`
+  display: flex;
+  align-items: center;
   padding: 12px;
+  text-decoration: none;
+  border-radius: 50%;
   background-color: #191C23;
-  transition: background-color 0.3s;
+
+  transition: background-color .3s;
 
   &:hover {
-    background-color: #8941FF;
-    fill: #fff;
+    background-color: #8941ff;
+
+    & > img {
+      filter: brightness(0) invert(1);
+    }
   }
+`;
+
+const SidebarIcon = styled.img`
+  width: 23.5px;
+  height: 23.5px;
+  transition: filter .3s;
 `;
 
 const Sidebar = () => {
@@ -56,12 +66,24 @@ const Sidebar = () => {
       <SidebarLogo src={Logo} alt='logo'/>
 
       <SidebarList> 
-        <SidebarIcon src={SBIcon1} alt='sidebar icon' />
-        <SidebarIcon src={SBIcon2} alt='sidebar icon' />
-        <SidebarIcon src={SBIcon3} alt='sidebar icon' />
-        <SidebarIcon src={SBIcon4} alt='sidebar icon' />
-        <SidebarIcon src={SBIcon5} alt='sidebar icon' />
-        <SidebarIcon src={SBIcon6} alt='sidebar icon' />
+        <SidebarLink href='#'>
+          <SidebarIcon src={SBIcon1} alt='sidebar link' />
+        </SidebarLink>
+        <SidebarLink href='#'>
+          <SidebarIcon src={SBIcon2} alt='sidebar link' />
+        </SidebarLink>
+        <SidebarLink href='#'>
+          <SidebarIcon src={SBIcon3} alt='sidebar link' />
+        </SidebarLink>
+        <SidebarLink href='#'>
+          <SidebarIcon src={SBIcon4} alt='sidebar link' />
+        </SidebarLink>
+        <SidebarLink href='#'>
+          <SidebarIcon src={SBIcon5} alt='sidebar link' />
+        </SidebarLink>
+        <SidebarLink href='#'>
+          <SidebarIcon src={SBIcon6} alt='sidebar link' />
+        </SidebarLink>
       </SidebarList>
     </SidebarBlock>
   );
