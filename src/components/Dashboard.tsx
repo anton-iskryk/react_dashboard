@@ -23,11 +23,11 @@ const GameStatsBlocks = styled.div`
 `;
 
 const Dashboard = () => {
-  const [data, setData] = useState<Data | undefined>(undefined);
-  const [statistic, setStatistic] = useState<Statistic | undefined>(undefined);
+  const [data, setData] = useState<Data | null>(null);
+  const [statistic, setStatistic] = useState<Statistic | null>(null);
   const [users, setUsers] = useState<Users[] | undefined>(undefined);
-  const [chartData, setChartData] = useState<ChartData[] | undefined>(undefined);
-  const [tableData, setTableData] = useState<TableData[] | undefined>(undefined);
+  const [chartData, setChartData] = useState<ChartData[] | null>(null);
+  const [tableData, setTableData] = useState<TableData[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {

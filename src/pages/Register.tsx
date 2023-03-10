@@ -161,7 +161,7 @@ const Register = () => {
 
         <Span>Or <Link
             style={LoginLink}
-            to='/react_dashboard/login/'
+            to='/login'
           >
             Log in
           </Link>

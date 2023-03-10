@@ -151,7 +151,7 @@ const Login = () => {
 
         {/* {error && <p>{error}</p>} */}
 
-        <Span>Or <Link style={RegisterLink} to='/react_dashboard/register/'>Sign up</Link></Span>
+        <Span>Or <Link style={RegisterLink} to='/register'>Sign up</Link></Span>
       </LoginForm>
     </LoginContainer>
   );
