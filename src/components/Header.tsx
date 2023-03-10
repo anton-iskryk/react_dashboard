@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import userIcon from '../img/user_icon.svg';
 
@@ -18,7 +19,7 @@ const HeaderTitle = styled.div`
 
   text-transform: uppercase;
 
-  color: #FFFFFF;
+  color: #fff;
 `;
 
 const HeaderLogin = styled.div`
@@ -28,7 +29,6 @@ const HeaderLogin = styled.div`
 `;
 
 const LoginIcon = styled.img`
-  cursor: pointer;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -36,12 +36,13 @@ const LoginIcon = styled.img`
   background-color: #242731;
 `;
 
-const LoginUserName = styled.div`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: #fff;
-`;
+const LoginUserName = {
+  fontWeight: '500',
+  fontSize: '14px',
+  lineHeight: '20px',
+  color: '#fff',
+  textDecoration: 'none',
+}
 
 const Header = () => {
   return (
@@ -52,7 +53,7 @@ const Header = () => {
 
       <HeaderLogin>
         <LoginIcon src={userIcon} alt='logo' />
-        <LoginUserName>Username</LoginUserName>
+        <Link style={LoginUserName} to='/login'>Username</Link>
       </HeaderLogin>
     </HeaderBlock>
   );

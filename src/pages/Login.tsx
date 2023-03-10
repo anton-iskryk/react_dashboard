@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginContainer = styled.div`
@@ -81,6 +81,14 @@ const LoginButton = styled.button`
   }
 `;
 
+// const ToHomepageLink = {
+//   fontWeight: '500',
+//   fontSize: '15px',
+//   lineHeight: '24px',
+//   color: '#fff',
+//   textDecoration: 'none',
+// };
+
 const Span = styled.span`
   font-weight: 400;
   font-size: 15px;
@@ -106,7 +114,7 @@ const Login = () => {
 
   // const [error, setError] = useState(null);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   const handleChange = (e: { target: { name: string; value: string; }; }) => {
@@ -118,6 +126,7 @@ const Login = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    navigate('/');
   };
 
   return (
