@@ -81,14 +81,6 @@ const RegisterButton = styled.button`
   }
 `;
 
-// const ToHomepageLink = {
-//   fontWeight: '500',
-//   fontSize: '15px',
-//   lineHeight: '24px',
-//   color: '#fff',
-//   textDecoration: 'none',
-// };
-
 const Span = styled.span`
   font-weight: 400;
   font-size: 15px;
