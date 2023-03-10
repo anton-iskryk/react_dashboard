@@ -19,9 +19,9 @@ React/React-Router/TypeScript/axios/styled-components/HTML5/CSS3
 
 App photos:
 
-![Dashboard](../public/dashboard.png)
+![Dashboard](dashboard.png)
 
-![Register page](../public/register.png)
+![Register page](register.png)
 
-![Login page](../public/login.png)
+![Login page](login.png)
 
