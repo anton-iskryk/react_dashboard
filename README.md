@@ -15,3 +15,13 @@
 ## 🔹Technologies:
 
 React/React-Router/TypeScript/axios/styled-components/HTML5/CSS3
+## 🔹Technologies:
+
+App photos:
+
+![Dashboard](../public/dashboard.png)
+
+![Register page](../public/register.png)
+
+![Login page](../public/login.png)
+

@@ -11,6 +11,8 @@ import {
 const TableWrapper = styled.table`
   width: 100%;
   border-collapse: collapse;
+
+  position: relative;
 `;
 
 const TableHead = styled.thead`
